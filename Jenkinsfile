@@ -2,11 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage("clone code") {
             steps {
-                echo 'Building..'
+                script {
+                    // Let's clone the source
+                    git '//github.com/shilpabalegar/amazon.git';
+                }
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Testing..'
